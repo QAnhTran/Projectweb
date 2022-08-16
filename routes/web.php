@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\TemplateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +14,18 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Route::get('list',[ProductController::class,'index']);
 Route::get('add-product',[ProductController::class,'addProduct']);
 Route::post('save-product',[ProductController::class,'saveProduct']);
-Route::view('update','updateProduct');
+
+Route::get('update/{productid}',[ProductController::class,'editProduct']);
+Route::post('update-product',[ProductController::class,'updateProduct']);
+
+Route::get('delete/{id}',[ProductController::class,'deleteProduct']);
+
+Route::get('/',[TemplateController::class,'index']);
+Route::get('/admin',[AdminController::class,'index']);

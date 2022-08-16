@@ -57,7 +57,12 @@ crossorigin="anonymous">
                             </div>
                             <div class="form-group">
                                 <label>Producer</label>
-                                <input type="number" name="producerid" class="form-control" />                            
+                                <select name="producerid" class=form-control>
+                                    @foreach ($prcdata as $prc)
+                                    <option value="{{$prc->producerID}}">{{$prc->producerID}}</option>
+                                    @endforeach
+                                </select>    
+                                        
                             </div>
                             
                             <input type="submit" name="addbtn" class="btn btn-primary" value="Submit">

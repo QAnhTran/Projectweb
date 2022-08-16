@@ -36,16 +36,18 @@ crossorigin="anonymous">
                     <tbody>
                         @foreach ($data as $prt)
                         <tr>
+                           
                             <td>{{$prt['productID']}}</td>
                             <td>{{$prt['productName']}}</td>
                             <td>{{$prt['productPrice']}}</td>
                             <td>{{$prt['productDetails']}}</td>
                             <td><img src="images/{{$prt['productImage1']}}" width="100px" height="100px"></td>
-                            <td><img src="images/{{$prt['productImage2']}}"></td>
-                            <td><img src="images/{{$prt['productImage3']}}"></td>
+                            <td><img src="images/{{$prt['productImage2']}}" width="100px" height="100px"></td>
+                            <td><img src="images/{{$prt['productImage3']}}" width="100px" height="100px"></td>
                             <td>{{$prt['producerID']}}</td>
-                            <td><input type="submit" name="addbtn" class="btn btn-default" value="Edit"> | 
-                                <input type="submit" name="addbtn" class="btn btn-default" value="Delete"></td>
+                            <td><a href="{{url('update/'.$prt->productID)}}" class="btn btn-primary"> Edit </a> | 
+                                <a href="{{url('delete/'.$prt->productID)}}" class="btn btn-primary"> Delete </a></td>
+                         
                            
                         </tr>
                         @endforeach
