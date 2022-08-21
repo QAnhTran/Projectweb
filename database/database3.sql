@@ -5,7 +5,9 @@ use database3;
 create table producers
 (
 	producerID int auto_increment primary key,
-    producerName varchar(30) not null unique
+    producerName varchar(30) not null unique,
+    producerAddress varchar(100),
+    producerCountry varchar (20)
 );
 
 create table products
@@ -14,9 +16,9 @@ create table products
     productName varchar(50) not null,
     productPrice int not null,
     productDetails varchar(3000) null,
-    productImage1 varchar(30) not null,
-    productImage2 varchar(30) null,
-    productImage3 varchar(30) null,
+    productImage1 varchar(200) not null,
+    productImage2 varchar(200) null,
+    productImage3 varchar(200) null,
     producerID int not null,
     constraint foreign key (producerID) references producers(producerID)
 );
@@ -73,13 +75,13 @@ insert into products(productID, productName, productPrice,
 
 select * from products;
 
+alter table products
+modify column productImage1 varchar(200),
+modify column productImage2 varchar(200),
+modify column productImage3 varchar(200);
 alter table product
 rename to products;
 
-alter table producer
-rename to producers;
-
-drop table bills;
-
-select * from customers;
-drop table customers;
+alter table producers
+add column producerAddress varchar(200) after producerName,
+add column producerCountry varchar(20) after producerAddress;

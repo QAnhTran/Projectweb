@@ -26,7 +26,7 @@ class ProductController extends Controller
         $productprice = $req->get('productprice');
         $productdetails = $req->get('productdetails'); 
         $productimage1 = $req->file('productimage1')->getClientOriginalName();
-        $productimage2 = $req->file('productimage2')->getClientOriginalName();
+       //$productimage2 = $req->file('productimage2')->getClientOriginalName();
         $productimage3 = $req->file('productimage3')->getClientOriginalName(); 
         $producerid = $req->get('producerid');
 
